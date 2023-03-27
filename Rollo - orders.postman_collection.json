@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "054e9782-665c-4a7f-9641-0643ce704691",
+		"name": "Rollo - orders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13821549"
+	},
+	"item": [
+		{
+			"name": "Get all orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJsNWZQNEQwSFhYZWpkdnJoZVdicDJ1XC93aytJbm1hNVI2Wk9FUktrYkJFTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhYTBjM2U2Yy03MDBjLTQyYWUtYjFhYy0zNzdkMmYzYThiNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfU0pzdGZORUx4IiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiY29nbml0bzp1c2VybmFtZSI6ImFhMGMzZTZjLTcwMGMtNDJhZS1iMWFjLTM3N2QyZjNhOGI1NSIsImdpdmVuX25hbWUiOiJFeGlzdGluZ1VQUyIsIm9yaWdpbl9qdGkiOiI4YzkyN2Q5Zi00MzU1LTQ5NTQtOWQyNy0xMDVkMWExMGIzM2UiLCJhdWQiOiIzZ2h2aGJxZ2tkc29icHFyOTVsajRtajBucCIsImV2ZW50X2lkIjoiNzdmYmNmYmItOTc4Yy00MTc4LTgwZDgtNzgwZTYyOGJmYTU1IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2Nzc1MzM4ODcsInBob25lX251bWJlciI6IisxNzY1OTg3NjU0NSIsImV4cCI6MTY3NzUzODY4OSwiaWF0IjoxNjc3NTM1MDg5LCJmYW1pbHlfbmFtZSI6IlVzZXIiLCJqdGkiOiJkNWNmNWQ5Yi1kMGQ4LTQzYjQtODkyYy1iNmJkMDAyYjkxNmEiLCJlbWFpbCI6InFhQHJvbGxvLmNvbSJ9.AMKCPtXncWuJHFBdCCracfLlhNQuIVRmLHkMKJuzviMN_MPMUMUop3i6DH97Yds02JsOoW-aN1oUosuMOidP1-mpX2o8yOrXWZooQV-NGaCIy2Cx9tNO0E5Ak2z80m3kKW1akK1qW3f38fyQ1A56Gs1E6hOc5bGgFfxHItBKBvMcXX1o1jALtUIPhcFBHL97h_I9-tZtIW14HF2QM7QTYCVWdPpHfUD5ygmcjeFJykHC67bgYsTySk5saZxHYo6auOmOZ_8a6iSNXtlMrh9g0Mz0zuGicWttuGORv752zNlaAPuZr4vUfzqgtkIeuXUodlIp9x3G90mgTwqCuSYT4A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.rsm-ndev.rollo-app.com/latest/orders?page=1&size=10&sort=purchaseDate&purchaseDate.dir=desc",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"rsm-ndev",
+						"rollo-app",
+						"com"
+					],
+					"path": [
+						"latest",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "purchaseDate",
+							"description": "works for all fields apart from status. To sort by multiple fields repeat such as sort=total&sort=created\n\nUse sort=sellerOrderId&sort=marketplaceOrderId to sort by order number"
+						},
+						{
+							"key": "purchaseDate.dir",
+							"value": "desc"
+						},
+						{
+							"key": "filter.status",
+							"value": "AWAITING_SHIPMENT",
+							"description": "filters shipments by statuses\nAWAITING_PAYMENT, AWAITING_SHIPMENT, ON_HOLD, SHIPPED, CANCELLED, OTHER",
+							"disabled": true
+						},
+						{
+							"key": "filter.not.status",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "filter.market",
+							"value": "",
+							"description": "filters orders by market account ids",
+							"disabled": true
+						},
+						{
+							"key": "filter.date.from",
+							"value": "",
+							"description": "filters orders by purchase date. Date format is 2007-12-03T10:15:30Z",
+							"disabled": true
+						},
+						{
+							"key": "filter.date.to",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "q",
+							"value": "",
+							"description": "look for orders which contains specified order number",
+							"disabled": true
+						},
+						{
+							"key": "{field}.dir",
+							"value": "",
+							"description": "asc (default)/desc",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJsNWZQNEQwSFhYZWpkdnJoZVdicDJ1XC93aytJbm1hNVI2Wk9FUktrYkJFTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhYTBjM2U2Yy03MDBjLTQyYWUtYjFhYy0zNzdkMmYzYThiNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfU0pzdGZORUx4IiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiY29nbml0bzp1c2VybmFtZSI6ImFhMGMzZTZjLTcwMGMtNDJhZS1iMWFjLTM3N2QyZjNhOGI1NSIsImdpdmVuX25hbWUiOiJFeGlzdGluZ1VQUyIsIm9yaWdpbl9qdGkiOiI4YzkyN2Q5Zi00MzU1LTQ5NTQtOWQyNy0xMDVkMWExMGIzM2UiLCJhdWQiOiIzZ2h2aGJxZ2tkc29icHFyOTVsajRtajBucCIsImV2ZW50X2lkIjoiNzdmYmNmYmItOTc4Yy00MTc4LTgwZDgtNzgwZTYyOGJmYTU1IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2Nzc1MzM4ODcsInBob25lX251bWJlciI6IisxNzY1OTg3NjU0NSIsImV4cCI6MTY3NzUzNzQ4OCwiaWF0IjoxNjc3NTMzODg4LCJmYW1pbHlfbmFtZSI6IlVzZXIiLCJqdGkiOiJjOWNiZTljNy02ZmQ2LTQ5NjEtOTU1My1jZGY5NGEyOTViMGEiLCJlbWFpbCI6InFhQHJvbGxvLmNvbSJ9.EHqtwsdFjZlA-iztVj6jUDl1pP9q7aDicvvsk9fwKadC-Ro-VUt7l7esrRdonV8rNaYJ-ZrB0972LONb23rScDvru2jfjnm_JrJy7OM87KkoaTh1GiwtCV_k2vCDEq-bFc0hrDTimhNgJy8fluCG2acXGhAtPPjdOz6ThnLbq6pVA1GWkdHbuOtk9J7eHS_0_PxHTkCT80OykWZcNAZrYNVLxAL7U6SRLbLMr_Xrjo3_7WDfDgmMNa6Kiottq6Fuh2p6P3dtlQgIEeC0XCNL-FAn-DbLnWso9O-jCKwKPjbyMU6bZFCxi0-4Zs1AIkOTudBUl2uwVVza7EjOydj-yQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"qqq@qqq.qqq\",\r\n  \"items\": [\r\n    {\r\n      \"name\": \"item1\",\r\n      \"price\": 1,\r\n      \"quantity\": 1,\r\n      \"sku\": \"sku1\"\r\n    }\r\n  ],\r\n  \"note\": \"\",\r\n  \"orderStatus\": \"AWAITING_PAYMENT\",\r\n  \"purchaseDate\": \"2023-03-15T00:35:00.000Z\",\r\n  \"sellerOrderId\": \"20230315010101\",\r\n  \"shippingAddress\": {\r\n    \"addressLine1\": \"1034 Fedora st\",\r\n    \"addressLine2\": \"apt 1\",\r\n    \"city\": \"Los Angeles\",\r\n    \"company\": \"MyCompany\",\r\n    \"country\": \"US\",\r\n    \"name\": \"Order Test01\",\r\n    \"phone\": \"2345678901\",\r\n    \"postalCode\": \"90006\",\r\n    \"state\": \"CA\"\r\n  },\r\n  \"shippingPaid\": 0,\r\n  \"shippingService\": \"\",\r\n  \"tax\": 0,\r\n  \"total\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://backend.rsm-ndev.rollo-app.com/latest/orders",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"rsm-ndev",
+						"rollo-app",
+						"com"
+					],
+					"path": [
+						"latest",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get order by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJsNWZQNEQwSFhYZWpkdnJoZVdicDJ1XC93aytJbm1hNVI2Wk9FUktrYkJFTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhYTBjM2U2Yy03MDBjLTQyYWUtYjFhYy0zNzdkMmYzYThiNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfU0pzdGZORUx4IiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiY29nbml0bzp1c2VybmFtZSI6ImFhMGMzZTZjLTcwMGMtNDJhZS1iMWFjLTM3N2QyZjNhOGI1NSIsImdpdmVuX25hbWUiOiJFeGlzdGluZ1VQUyIsIm9yaWdpbl9qdGkiOiI4YzkyN2Q5Zi00MzU1LTQ5NTQtOWQyNy0xMDVkMWExMGIzM2UiLCJhdWQiOiIzZ2h2aGJxZ2tkc29icHFyOTVsajRtajBucCIsImV2ZW50X2lkIjoiNzdmYmNmYmItOTc4Yy00MTc4LTgwZDgtNzgwZTYyOGJmYTU1IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2Nzc1MzM4ODcsInBob25lX251bWJlciI6IisxNzY1OTg3NjU0NSIsImV4cCI6MTY3NzUzODY4OSwiaWF0IjoxNjc3NTM1MDg5LCJmYW1pbHlfbmFtZSI6IlVzZXIiLCJqdGkiOiJkNWNmNWQ5Yi1kMGQ4LTQzYjQtODkyYy1iNmJkMDAyYjkxNmEiLCJlbWFpbCI6InFhQHJvbGxvLmNvbSJ9.AMKCPtXncWuJHFBdCCracfLlhNQuIVRmLHkMKJuzviMN_MPMUMUop3i6DH97Yds02JsOoW-aN1oUosuMOidP1-mpX2o8yOrXWZooQV-NGaCIy2Cx9tNO0E5Ak2z80m3kKW1akK1qW3f38fyQ1A56Gs1E6hOc5bGgFfxHItBKBvMcXX1o1jALtUIPhcFBHL97h_I9-tZtIW14HF2QM7QTYCVWdPpHfUD5ygmcjeFJykHC67bgYsTySk5saZxHYo6auOmOZ_8a6iSNXtlMrh9g0Mz0zuGicWttuGORv752zNlaAPuZr4vUfzqgtkIeuXUodlIp9x3G90mgTwqCuSYT4A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.rsm-ndev.rollo-app.com/latest/orders/af6241e5-9a61-401c-89f0-3b80626695e0",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"rsm-ndev",
+						"rollo-app",
+						"com"
+					],
+					"path": [
+						"latest",
+						"orders",
+						"af6241e5-9a61-401c-89f0-3b80626695e0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJsNWZQNEQwSFhYZWpkdnJoZVdicDJ1XC93aytJbm1hNVI2Wk9FUktrYkJFTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI2Nzc4N2IyYS01MzcyLTQxNGItYTlmYS1mN2E3NjliZTAyZDQiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfU0pzdGZORUx4IiwiY3VzdG9tOmxpbmtlZF9hY2NvdW50cyI6IjFjOWQyZGY5LTkxODUtNGE3MC05NGYwLWZjMGU2ZTQzNTg1NSIsInBob25lX251bWJlcl92ZXJpZmllZCI6ZmFsc2UsImNvZ25pdG86dXNlcm5hbWUiOiI2Nzc4N2IyYS01MzcyLTQxNGItYTlmYS1mN2E3NjliZTAyZDQiLCJnaXZlbl9uYW1lIjoiRmRldiIsIm9yaWdpbl9qdGkiOiIzYzJkMGU1OC01Y2JhLTQ0MTQtYjZmMy0wMTYyNjgyNmEwMjMiLCJhdWQiOiIzZ2h2aGJxZ2tkc29icHFyOTVsajRtajBucCIsImV2ZW50X2lkIjoiODA1Nzg4ZjAtMzkyMS00YjFmLTljMzUtMjRkM2MxNTYyZTUxIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2Nzg4NjkzNjQsInBob25lX251bWJlciI6IisxMjM0NTY3ODkwMSIsImV4cCI6MTY3ODg3MzAzMCwiaWF0IjoxNjc4ODY5NDMwLCJmYW1pbHlfbmFtZSI6IkxkZXYiLCJqdGkiOiI4MjRhNTJhOC1mYjA4LTRkYmItOWY1MC1jOGQwOWE1MjFlNGEiLCJlbWFpbCI6InJvdmVuc2t5aS5hcnRlbS50ZXN0Zm9ydEBnbWFpbC5jb20ifQ.H0ni6xYE85ZilJeOaJsf6QLzwVedbBL9_eZgSp8_lYCxeQ_C9eRmClV6zP1jUzfdi22pyczGrzfcPmm7ZOEC8XInHSbH2AbL0wp3nHfVnXw795QOSOSQCOGGu8qkiHb8N7j_uNupi5AbDLeF3x5eWmcGLiWKb1tgfFJiSPluIBVLXwGdKdTJV5DiFNKkdPzsgX8PYucf70_PMdB2eOuOB5PsUWikkDUHQnIHcPPVKpMFkFpKYYAgS9i5PPOlgrE-Z5BZkMzmO5J0kEfaJNjAil9xFxrDzAclqmMmJ75aCM4s5Joi7zvoO4lC8YPzLB55dI4SonKi385h_Yu8As9tzA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"comments\": \"\",\r\n  \"email\": \"rovenskyi.artem.testfort@gmail.com\",\r\n  \"items\": [\r\n    {\r\n      \"description\": \"\",\r\n      \"id\": \"2e99ad48-a1ac-4109-b133-61b0ec2c4f7a\",\r\n      \"name\": \"item1\",\r\n      \"price\": 1,\r\n      \"quantity\": 1,\r\n      \"sku\": \"sku1\"\r\n    }\r\n  ],\r\n  \"note\": \"\",\r\n  \"orderStatus\": \"AWAITING_SHIPMENT\",\r\n  \"purchaseDate\": \"2023-02-14T12:29:24.882Z\",\r\n  \"sellerOrderId\": \"20230214142924\",\r\n  \"shippingAddress\": {\r\n    \"addressLine1\": \"1034 Fedora st\",\r\n    \"addressLine2\": \"apt11\",\r\n    \"addressLine3\": \"\",\r\n    \"city\": \"Los Angeles\",\r\n    \"company\": \"MyCompany\",\r\n    \"country\": \"US\",\r\n    \"district\": \"\",\r\n    \"id\": \"84fc63b9-24d1-4356-bf15-7e582a7d45c5\",\r\n    \"name\": \"Order Test01\",\r\n    \"phone\": \"2345678901\",\r\n    \"postalCode\": \"90006\",\r\n    \"state\": \"CA\"\r\n  },\r\n  \"shippingPaid\": 0,\r\n  \"shippingService\": \"\",\r\n  \"tax\": 0,\r\n  \"total\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://backend.rsm-ndev.rollo-app.com/latest/orders/2474ca21-4597-429c-b061-a30048c7158d",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"rsm-ndev",
+						"rollo-app",
+						"com"
+					],
+					"path": [
+						"latest",
+						"orders",
+						"2474ca21-4597-429c-b061-a30048c7158d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJsNWZQNEQwSFhYZWpkdnJoZVdicDJ1XC93aytJbm1hNVI2Wk9FUktrYkJFTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhYTBjM2U2Yy03MDBjLTQyYWUtYjFhYy0zNzdkMmYzYThiNTUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfU0pzdGZORUx4IiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiY29nbml0bzp1c2VybmFtZSI6ImFhMGMzZTZjLTcwMGMtNDJhZS1iMWFjLTM3N2QyZjNhOGI1NSIsImdpdmVuX25hbWUiOiJFeGlzdGluZ1VQUyIsIm9yaWdpbl9qdGkiOiI4YzkyN2Q5Zi00MzU1LTQ5NTQtOWQyNy0xMDVkMWExMGIzM2UiLCJhdWQiOiIzZ2h2aGJxZ2tkc29icHFyOTVsajRtajBucCIsImV2ZW50X2lkIjoiNzdmYmNmYmItOTc4Yy00MTc4LTgwZDgtNzgwZTYyOGJmYTU1IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2Nzc1MzM4ODcsInBob25lX251bWJlciI6IisxNzY1OTg3NjU0NSIsImV4cCI6MTY3NzUzODY4OSwiaWF0IjoxNjc3NTM1MDg5LCJmYW1pbHlfbmFtZSI6IlVzZXIiLCJqdGkiOiJkNWNmNWQ5Yi1kMGQ4LTQzYjQtODkyYy1iNmJkMDAyYjkxNmEiLCJlbWFpbCI6InFhQHJvbGxvLmNvbSJ9.AMKCPtXncWuJHFBdCCracfLlhNQuIVRmLHkMKJuzviMN_MPMUMUop3i6DH97Yds02JsOoW-aN1oUosuMOidP1-mpX2o8yOrXWZooQV-NGaCIy2Cx9tNO0E5Ak2z80m3kKW1akK1qW3f38fyQ1A56Gs1E6hOc5bGgFfxHItBKBvMcXX1o1jALtUIPhcFBHL97h_I9-tZtIW14HF2QM7QTYCVWdPpHfUD5ygmcjeFJykHC67bgYsTySk5saZxHYo6auOmOZ_8a6iSNXtlMrh9g0Mz0zuGicWttuGORv752zNlaAPuZr4vUfzqgtkIeuXUodlIp9x3G90mgTwqCuSYT4A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://backend.rsm-ndev.rollo-app.com/latest/orders/e70e16cd-5b35-4b26-8b55-f5fb1e08dca6",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"rsm-ndev",
+						"rollo-app",
+						"com"
+					],
+					"path": [
+						"latest",
+						"orders",
+						"e70e16cd-5b35-4b26-8b55-f5fb1e08dca6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
